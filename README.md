@@ -1,70 +1,50 @@
-# Getting Started with Create React App
+# React Hooks Practice
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## What are hooks?
 
-## Available Scripts
+Hooks in React basically allow for function components to have access to state and other React features like lifecycle methods.
+React has various built-in hooks, but you can also create your own custom hooks.
 
-In the project directory, you can run:
+## Rules of Hooks
 
-### `npm start`
+1. Can only be called within React function components
+2. Can only be called at the top level of a component
+3. Cannot be called inside conditions
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+---
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## useState
 
-### `npm test`
+Allows you to add state to a component. It returns an array with two values: the current state and a function to update the state. Update state using the state setting function.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+```
+import { useState } from "react";
+```
 
-### `npm run build`
+### Intialization
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+```
+const [somState, setSomeState] = useState("defaultValue");
+```
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+### Updating Objects and Arrays
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+Whenever state is updated, the entire state gets overwritten so you would have to use
+the spread operator to update objects and arrays.
 
-### `npm run eject`
+```
+setState(previousState => ({
+  ...previousState,
+  property: property,
+}));
+```
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+### State Updater Function
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+React may batch multiple state updates together for performance reasons so if you are
+relying on a previous state value to calculate a new state value, you should use the
+state updater function.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+```
+setState(previousState => previousState + 1);
+```
