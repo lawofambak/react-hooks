@@ -24,7 +24,7 @@ import { useState } from "react";
 ### Intialization
 
 ```
-const [somState, setSomeState] = useState("defaultValue");
+const [someState, setSomeState] = useState("defaultValue");
 ```
 
 ### Updating Objects and Arrays
