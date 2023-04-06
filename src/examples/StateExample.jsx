@@ -22,17 +22,17 @@ const StateExample = () => {
   };
 
   return (
-    <div className="state-example">
+    <div className="example">
       <h1>Example of useState hook</h1>
-      <div className="state-container">
+      <div className="example-container">
         <p style={{ color: color }}>This text color is {color}</p>
         <button onClick={changeColor}>Change Color</button>
       </div>
-      <div className="state-container">
+      <div className="example-container">
         <p>The count is {count}</p>
         <button onClick={incrementCount}>Increment by 2</button>
       </div>
-      <div className="state-container">
+      <div className="example-container">
         <p>
           The object's properties are {obj.a}, {obj.b}, and {obj.c}
         </p>

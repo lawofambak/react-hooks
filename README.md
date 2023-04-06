@@ -48,3 +48,71 @@ state updater function.
 ```
 setState(previousState => previousState + 1);
 ```
+
+---
+
+## useEffect
+
+Allows you to perform side effects in your components such as fetching data, timers, and etc. It takes two arguments: a function that performs the effect and a
+an optional array of dependencies. It is to note that useEffect runs on every render. Additionally, some effects require cleanup to reduce memory leaks, slow performance,
+or unexpected behaviors. You can cleanup by including a return function at the end of the hook.
+
+```
+import { useEffect } from "react";
+```
+
+### Initialization
+
+```
+useEffect(() =>
+  // Logic
+  // goes
+  // here
+, [optionalDependencies]);
+```
+
+### No Dependency
+
+This will run on every render.
+
+```
+useEffect(() => {
+  // Logic
+});
+```
+
+### Empty Array
+
+This will only run on the first render.
+
+```
+useEffect(() => {
+  // Logic
+}, []);
+```
+
+### Dependencies
+
+This will run on the first render and any time any dependency values change.
+
+```
+useEffect(() => {
+  // Logic
+}, [value1, value2]);
+```
+
+### Effect Cleanup
+
+Some things to clean up in an effect are timeouts, event listeners, subscriptions, and etc.
+
+```
+useEffect(() => {
+  // Event logic
+
+  window.addEventListener(...);
+
+  return () => {
+    window.removeEventListener(...);
+  }
+}, []);
+```

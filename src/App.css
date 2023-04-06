@@ -33,7 +33,7 @@ button:hover {
   background-color: rgb(66, 149, 66);
 }
 
-.state-example {
+.example {
   display: flex;
   flex-direction: column;
   background-color: whitesmoke;
@@ -45,7 +45,7 @@ button:hover {
   padding: 0px 15px;
 }
 
-.state-container {
+.example-container {
   display: flex;
   flex-direction: row;
   align-items: center;
