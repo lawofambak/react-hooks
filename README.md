@@ -116,3 +116,40 @@ useEffect(() => {
   }
 }, []);
 ```
+
+---
+
+## useContext
+
+Allows you to consume data without using a higher-order component or through props which
+is also known as "prop drilling". It is basically a convenient way to share data across
+multiple (even nested) components.
+
+```
+import { createContext, useContext } from "react";
+```
+
+### Initialization
+
+You first need to create a context in order for it to be used elsewhere in your application. The optional argument in "createContext()" is essentially the default value that is provided when you use the context with no provider.
+
+```
+const CreatedContext = createContext();
+```
+
+### Usage
+
+In order to use this context within a component, you just need to use the "useContext" hook.
+
+```
+const ContextValue = useContext(CreatedContext);
+```
+
+Additionally, you need to wrap the tree of components that will use this context with a context provider that has a value prop. This value prop can take an object and not just a single value.
+
+```
+<CreatedContext.Provider value={value}>
+  <ComponentOne />
+  <ComponentTwo />
+</CreatedContext.Provider>
+```
