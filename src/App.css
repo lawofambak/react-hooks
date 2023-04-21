@@ -33,6 +33,11 @@ button:hover {
   background-color: rgb(66, 149, 66);
 }
 
+input {
+  width: 200px;
+  height: 20px;
+}
+
 .example {
   display: flex;
   flex-direction: column;
@@ -50,4 +55,10 @@ button:hover {
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
+}
+
+.input-container {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
 }

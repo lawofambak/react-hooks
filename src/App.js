@@ -2,6 +2,7 @@ import "./App.css";
 import StateExample from "./examples/StateExample";
 import EffectExample from "./examples/EffectExample";
 import ContextExample from "./examples/ContextExample";
+import RefExample from "./examples/RefExample";
 
 function App() {
   return (
@@ -9,7 +10,7 @@ function App() {
       <StateExample />
       <EffectExample />
       <ContextExample />
-      <StateExample />
+      <RefExample />
     </div>
   );
 }

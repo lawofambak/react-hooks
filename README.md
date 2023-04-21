@@ -153,3 +153,41 @@ Additionally, you need to wrap the tree of components that will use this context
   <ComponentTwo />
 </CreatedContext.Provider>
 ```
+
+---
+
+## useRef
+
+Allows you to create presisted mutuable values between renders and also access DOM elements directly.
+
+```
+import { useRef } from "react";
+```
+
+### Initialization
+
+To use the hook, you can just call the hook with one argument as the initial value. This then returns an object that has the special property of _current_ that can be used to access the reference value.
+
+```
+const someReference = useRef(initialValue);
+```
+
+### Usage
+
+To use the referenced value in your component, you just need to use that variable. For example, you can use it to access DOM elements directly by creating a reference to the element with the _ref_ attribute.
+
+```
+const elementRef = useRef(null);
+
+console.log(elementRef.current); // Will log out the referenced DOM element
+```
+
+You can also use it to keep count of how many times a component rendered.
+
+```
+const renderCount = useRef(1);
+
+useEffect(() => {
+  renderCount.current = renderCount.current + 1;
+});
+```
